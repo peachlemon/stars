@@ -1,0 +1,67 @@
+<div class="margin-auto register" ng-controller="registerCtrl">
+    <form name="register" novalidate>
+        <ul>
+            <li>
+                <label for="name"><i>*</i>姓名：</label><input type="text" ng-model="name" name="name" required />
+                <span class="error" ng-show="register.name.$dirty && register.name.$error.required">请填写姓名</span>
+            </li>
+            <li>
+                <label for="company"><i>*</i>公司名称：</label><input type="text" name="company" ng-model="companyName" required />
+                <span class="error" ng-show="register.company.$dirty && register.company.$error.required">请填写公司名称</span>
+            </li>
+            <li>
+                <label for="card"><i>*</i>证件号：</label><input type="text" name="card" ng-model="card" required />
+                <span class="error" ng-show="register.card.$dirty && register.card.$error.required">请填写公司名称</span>
+            </li>
+            <li>
+                <label for="city"><i>*</i>城市：</label>
+                <span>
+                    <select name="province" ng-options="item.id as item.name for item in provinces" ng-change="getCities(provinceId)" ng-model="provinceId">
+                        <option value="">-请选择-</option>
+                    </select>省
+                </span>
+                <span ng-show="provinceId">
+                    <select name="city" ng-options="item.id as item.name for item in cities" ng-change="getCounties(cityId)" ng-model="cityId">
+                        <option value="">-请选择-</option>
+                    </select>市
+                </span>
+                <span ng-show="cityId">
+                    <select name="county" ng-options="item.id as item.name for item in counties" ng-model="countyId">
+                        <option value="">-请选择-</option>
+                    </select>县
+                </span>
+            </li>
+            <li>
+                <label for="address"><i>*</i>详细地址：</label><input type="text" name="address" ng-model="address" required />
+                <span class="error" ng-show="register.address.$dirty && register.address.$error.required">请填写详细地址</span>
+            </li>
+            <li>
+                <label for="phone"><i>*</i>联系方式：</label><input type="text" name="phone" ng-model="phone" ng-pattern="/^0{0,1}(13[0-9]|14[0-9]|15[0-9]|18[0-9]|177)[0-9]{8}$/" maxlength="11" required />
+                <span class="error" ng-show="register.phone.$dirty && register.phone.$error.required">请填写联系方式</span>
+                <span class="error" ng-show="register.phone.$error.pattern">请填写正确的联系方式</span>
+            </li>
+            <li class="ui-relative" ng-controller="startCtrl">
+                <label for="start"><i>*</i>合作时间：</label><input type="text" ng-blur="validTime()" readonly="readonly" name="start" datepicker-popup ng-model="startTime" is-open="opened" datepicker-options="dateOptions" required close-text="关闭" clear-text="清空" current-text="今天" />
+                <span class="">
+                    <button type="button" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+                <span class="error" ng-show="error">请选择合作时间</span>
+            </li>
+            <li ng-controller="joinCtrl">
+                <label for="join-time"><i>*</i>签约时间：</label><input type="text" ng-blur="validTime()" readonly="readonly" name="join" datepicker-popup ng-model="joinTime" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="关闭" clear-text="清空" current-text="今天" />
+                <span class="">
+                    <button type="button" ng-click="openJoinTime($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+                <span class="error" ng-show="error">请选择签约时间</span>
+            </li>
+            <li>
+                <label for="price">价格：</label><input type="text" name="price" ng-model="price" />
+            </li>
+        </ul>
+        <div class="buttons">
+            <button type="submit" ng-disabled="!(register.name.$valid && register.company.$valid && register.card.$valid && register.address.$valid && register.phone.$valid && register.start.$valid && register.join.$valid)" class="btn btn-primary btn-lg" title="确定" ng-click="save()">确定</button>
+            <button type="button" class="btn btn-default reset" title="重置" ng-click="reset()">重置</button>
+            <button type="button" ng-show="isModify" class="btn btn-default reset" title="返回" ng-click="goBack()">返回</button>
+        </div>
+    </form>
+</div>

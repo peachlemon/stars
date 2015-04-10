@@ -1,0 +1,54 @@
+.margin-auto {
+    margin: 0 auto;
+    width: 900px;
+}
+.stars-layout {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+}
+.register {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+.register li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+.register label {
+    width: 100px;
+    text-align: right;
+}
+.register i,.error {
+    color: red;
+    margin-right: 2px;
+}
+.register i.glyphicon {
+    color: #000000;
+}
+.register .buttons {
+    margin: 8px 0 0 140px
+}
+.register .btn {
+    font-size: 18px;
+    padding: 3px 10px;
+}
+.reset {
+    margin-left: 15px;
+}
+.ui-relative {
+    position: relative;
+}
+.userGridWrap {
+    position: absolute;
+    background: #ffffff;
+    top: 40px;
+    bottom: 50px;
+    right: 100px;
+    left: 0;
+}
+div.flexigrid .search_txt {
+    height: 24px;
+}

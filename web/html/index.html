@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="stars">
+
+<head>
+  <meta charset="utf-8">
+  <title>stars</title>
+  <link rel="stylesheet" type="text/css" href="/stars/web/lib/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/stars/web/lib/offcanvas.css" />
+  <link rel="stylesheet" type="text/css" href="/stars/web/css/stars.css" />
+  <link rel="stylesheet" type="text/css" href="/stars/web/lib/flexigrid/css/flexigrid.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">STARS</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ">
+          <li><a class="h3 modal-title" href="javascript:;">欢迎进入球星际管理系统</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-right col-xs-12 col-sm-12 stars-layout" ng-view></div>
+  </div>
+  <script type="text/javascript" src="/stars/web/lib/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="/stars/web/lib/flexigrid/js/flexigrid.js"></script>
+  <script type="text/javascript" src="/stars/web/lib/angular.min.js"></script>
+  <script type="text/javascript" src="/stars/web/lib/angular-route.min.js"></script>
+  <script type="text/javascript" src="/stars/web/lib/ui-bootstrap-tpls-0.12.1.min.js"></script>
+  <script type="text/javascript" src="/stars/web/js/app.js"></script>
+  <script type="text/javascript" src="/stars/web/js/controllers.js"></script>
+  <script type="text/javascript" src="/stars/web/js/services.js"></script>
+</body>
+
+</html>
